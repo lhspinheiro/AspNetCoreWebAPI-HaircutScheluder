@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="UseCases\Schedules\PDF\Fonts\Raleway-Black.ttf" />
+    <None Remove="UseCases\Schedules\PDF\Fonts\Raleway-Regular.ttf" />
+    <None Remove="UseCases\Schedules\PDF\Fonts\WorkSans-Black.ttf" />
+    <None Remove="UseCases\Schedules\PDF\Fonts\WorkSans-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="UseCases\Schedules\PDF\Fonts\Raleway-Black.ttf" />
+    <EmbeddedResource Include="UseCases\Schedules\PDF\Fonts\Raleway-Regular.ttf" />
+    <EmbeddedResource Include="UseCases\Schedules\PDF\Fonts\WorkSans-Black.ttf" />
+    <EmbeddedResource Include="UseCases\Schedules\PDF\Fonts\WorkSans-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="ClosedXML" Version="0.104.2" />
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="PDFsharp-MigraDoc" Version="6.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HairScheduler.Communication\HairScheduler.Communication.csproj" />
+    <ProjectReference Include="..\HairScheduler.Domain\HairScheduler.Domain.csproj" />
+    <ProjectReference Include="..\HairScheduler.Exception\HairScheduler.Exception.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Logo\" />
+  </ItemGroup>
+
+</Project>

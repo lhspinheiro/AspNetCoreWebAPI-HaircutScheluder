@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FD5AD8BA-A48F-4698-9969-B41A27E09930}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HairScheduler.Api", "src\HairScheduler.Api\HairScheduler.Api.csproj", "{7CC68A92-8A1B-4BBA-95C0-B609C921B18F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HairScheduler.Application", "src\HairScheduler.Application\HairScheduler.Application.csproj", "{60E430E1-F9D1-4F53-BE57-75144E23F9B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HairScheduler.Communication", "src\HairScheduler.Communication\HairScheduler.Communication.csproj", "{730CBD68-B7DE-4FBF-95F5-09E4AD76F64A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HairScheduler.Domain", "src\HairScheduler.Domain\HairScheduler.Domain.csproj", "{4724804E-5846-4A8F-8D33-188014D709AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HairScheduler.Exception", "src\HairScheduler.Exception\HairScheduler.Exception.csproj", "{6FC6D7C0-E776-471A-B644-8CCE09635A84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HairScheduler.Infrastructure", "src\HairScheduler.Infrastructure\HairScheduler.Infrastructure.csproj", "{D06BFA68-6F5A-494E-8529-333E93096914}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7CC68A92-8A1B-4BBA-95C0-B609C921B18F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CC68A92-8A1B-4BBA-95C0-B609C921B18F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CC68A92-8A1B-4BBA-95C0-B609C921B18F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CC68A92-8A1B-4BBA-95C0-B609C921B18F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60E430E1-F9D1-4F53-BE57-75144E23F9B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60E430E1-F9D1-4F53-BE57-75144E23F9B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60E430E1-F9D1-4F53-BE57-75144E23F9B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60E430E1-F9D1-4F53-BE57-75144E23F9B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{730CBD68-B7DE-4FBF-95F5-09E4AD76F64A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{730CBD68-B7DE-4FBF-95F5-09E4AD76F64A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{730CBD68-B7DE-4FBF-95F5-09E4AD76F64A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{730CBD68-B7DE-4FBF-95F5-09E4AD76F64A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4724804E-5846-4A8F-8D33-188014D709AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4724804E-5846-4A8F-8D33-188014D709AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4724804E-5846-4A8F-8D33-188014D709AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4724804E-5846-4A8F-8D33-188014D709AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FC6D7C0-E776-471A-B644-8CCE09635A84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FC6D7C0-E776-471A-B644-8CCE09635A84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FC6D7C0-E776-471A-B644-8CCE09635A84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FC6D7C0-E776-471A-B644-8CCE09635A84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D06BFA68-6F5A-494E-8529-333E93096914}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D06BFA68-6F5A-494E-8529-333E93096914}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D06BFA68-6F5A-494E-8529-333E93096914}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D06BFA68-6F5A-494E-8529-333E93096914}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7CC68A92-8A1B-4BBA-95C0-B609C921B18F} = {FD5AD8BA-A48F-4698-9969-B41A27E09930}
+		{60E430E1-F9D1-4F53-BE57-75144E23F9B5} = {FD5AD8BA-A48F-4698-9969-B41A27E09930}
+		{730CBD68-B7DE-4FBF-95F5-09E4AD76F64A} = {FD5AD8BA-A48F-4698-9969-B41A27E09930}
+		{4724804E-5846-4A8F-8D33-188014D709AE} = {FD5AD8BA-A48F-4698-9969-B41A27E09930}
+		{6FC6D7C0-E776-471A-B644-8CCE09635A84} = {FD5AD8BA-A48F-4698-9969-B41A27E09930}
+		{D06BFA68-6F5A-494E-8529-333E93096914} = {FD5AD8BA-A48F-4698-9969-B41A27E09930}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {35B94067-98BB-40FA-8780-6239AC20B986}
+	EndGlobalSection
+EndGlobal
