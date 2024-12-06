@@ -1,3 +1,5 @@
+## 💈 Gerenciamento de agendamento de cabeleireiro ✂️
+
 API desenvolvida em C# com o **.NET 8** utilizando o framework **ASP.NET Core** adotando os princípios do **Domain-Driven-Design (DDD)**, projetada para gerenciar agendamentos de cortes de cabelo de forma prática e eficaz. Esta aplicação permite que os usuários realizem agendamentos de cortes, especificando o tipo de corte desejado e armazenando os dados de forma segura em um banco de dados **MySQL**. 
 
 Além disso, é possível cancelar agendamentos, consultar detalhes dos agendamentos realizados, verificar a disponibilidade de horários e atualizar as informações do agendamento, como a data ou o tipo de corte.
