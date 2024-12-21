@@ -20,6 +20,7 @@ internal class Repository : IWriteOnlyRepository, IReadOnlyRepository, IUpdateOn
     {
         await _dbContext.Schedules.AddAsync(schedule);
     }
+
     public async Task<bool> Delete(string nickname, DateTime date)
     {
         var remove = await _dbContext.Schedules.FirstOrDefaultAsync(r => r.Nickname == nickname && r.Date == date);
@@ -30,6 +31,11 @@ internal class Repository : IWriteOnlyRepository, IReadOnlyRepository, IUpdateOn
 
         _dbContext.Schedules.Remove(remove);
         return true;
+    }
+
+    public async Task<bool> ExistData(DateTime date)
+    {
+        return await _dbContext.Schedules.AnyAsync(d => d.Date >= date && d.Date <= date.AddMinutes(30));
     }
 
     public async Task<List<Schedule>> FilterByDay(DateTime day, string nickname)

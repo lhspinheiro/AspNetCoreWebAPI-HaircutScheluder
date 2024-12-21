@@ -70,6 +70,15 @@ namespace HairScheduler.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Date unavailable.
+        /// </summary>
+        public static string DATA_ALREADY_EXISTS {
+            get {
+                return ResourceManager.GetString("DATA_ALREADY_EXISTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Date cannot be for the past!.
         /// </summary>
         public static string DATE_PAST {

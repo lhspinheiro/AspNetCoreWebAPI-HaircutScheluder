@@ -120,6 +120,9 @@
   <data name="CATEGORY_HAIRCUT_INVALID" xml:space="preserve">
     <value>Haircut category is not valid!</value>
   </data>
+  <data name="DATA_ALREADY_EXISTS" xml:space="preserve">
+    <value>Date unavailable</value>
+  </data>
   <data name="DATE_PAST" xml:space="preserve">
     <value>Date cannot be for the past!</value>
   </data>

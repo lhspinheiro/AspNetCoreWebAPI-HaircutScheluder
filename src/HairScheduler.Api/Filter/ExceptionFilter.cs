@@ -14,11 +14,11 @@ public class ExceptionFilter : IExceptionFilter
         {
             Exceptions(context);
         }
-        /* else
+         else
         {
 
             ThrowUnkowError(context);
-        }*/
+        }
     }
     private void Exceptions (ExceptionContext context)
     {

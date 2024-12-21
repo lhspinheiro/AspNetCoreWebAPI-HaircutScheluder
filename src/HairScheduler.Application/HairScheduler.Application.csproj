@@ -36,6 +36,7 @@
 
   <ItemGroup>
     <Folder Include="Logo\" />
+    <Folder Include="Storage\" />
   </ItemGroup>
 
 </Project>
