@@ -12,4 +12,5 @@ public static class ColorHelper
     public static readonly Color BLACK = Color.Parse("#000000");
     public static readonly Color WITHE = Color.Parse("#FFFFFF");
     public static readonly Color GREEN = Color.Parse("#00c176");
+
 }
