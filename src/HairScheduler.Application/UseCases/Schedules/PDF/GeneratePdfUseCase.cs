@@ -9,6 +9,7 @@ using MigraDoc.DocumentObjectModel.Tables;
 using MigraDoc.Rendering;
 using PdfSharp.Fonts;
 using System.Globalization;
+using System.Reflection;
 
 
 namespace HairScheduler.Application.UseCases.Schedules.PDF;
@@ -126,7 +127,7 @@ public class GeneratePdfUseCase : IGeneratePdfUseCase
     private Document CreateDocument(DateTime day)
     {
         var document = new Document();
-        document.Info.Title = $"{ResourceGeneratorPdfMessages.HAIRCUT_INFORMATION} {day:Y}";
+        document.Info.Title = $"{ResourceGeneratorPdfMessages.HAIRCUT_INFORMATION} {day:yy MMM ddd}";
         document.Info.Author = "BarberBoss";
 
         var style = document.Styles["normal"];
@@ -159,15 +160,16 @@ public class GeneratePdfUseCase : IGeneratePdfUseCase
         table.AddColumn("72").Format.Alignment = ParagraphAlignment.Right;
 
         var row = table.AddRow();
-        /* var assembly = Assembly.GetExecutingAssembly();
-         var directoryName = Path.GetDirectoryName(assembly.Location);
-         var pathFile = Path.Combine(directoryName, "Logo", "Logo.png");
-         row.Cells[0].AddImage(pathFile);*/
-        row.Cells[0].AddImage("D:\\Projetos\\C# projects\\HairScheduler\\src\\HairScheduler.Application\\Logo\\Logo2.png");       
+
+        var assembly = Assembly.GetExecutingAssembly();
+        var directoryLogo = Path.GetDirectoryName(assembly.Location);
+        var pathFile = Path.Combine(directoryLogo!, "Logo", "Logo.png");
+
+        row.Cells[0].AddImage(pathFile);       
         row.Cells[1].Format.Font = new Font { Name = FontHelper.RYE_REGULAR, Size = 35 };
         row.Cells[1].AddParagraph("Barber Shop");
         row.Cells[1].VerticalAlignment = MigraDoc.DocumentObjectModel.Tables.VerticalAlignment.Center;
-        row.Cells[2].AddImage("D:\\Projetos\\C# projects\\HairScheduler\\src\\HairScheduler.Application\\Logo\\Logo2.png");
+        row.Cells[2].AddImage(pathFile);
 
     }
 
