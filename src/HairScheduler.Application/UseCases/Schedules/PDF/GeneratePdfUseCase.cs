@@ -16,7 +16,7 @@ namespace HairScheduler.Application.UseCases.Schedules.PDF;
 public class GeneratePdfUseCase : IGeneratePdfUseCase
 {
     private readonly IReadOnlyRepository _repository;
-    private const int HEIGHT_ROW_TABLE = 25;
+    private const int HEIGHT_ROW_TABLE = 30;
     private readonly string Symbol = "R$";
     private const double PriceKid = 30.00;
     private const double PriceAdult = 40.00;
@@ -40,7 +40,7 @@ public class GeneratePdfUseCase : IGeneratePdfUseCase
         var document = CreateDocument(day);
         var page = CreatePage(document);
         createHeader(page);
-       
+
 
         foreach (var information in informations)
         {
@@ -48,19 +48,22 @@ public class GeneratePdfUseCase : IGeneratePdfUseCase
             var table = CreateTable(page);
             addWhiteSpace(table);
 
+           
+
             var row = table.AddRow();
             row.Height = HEIGHT_ROW_TABLE;
 
+
             addNameTitle(row.Cells[0]);
             addName(row.Cells[1], information.Name);
-            addWhiteSpace(table);
+            
 
             row = table.AddRow();
             row.Height = HEIGHT_ROW_TABLE;
 
             addNickTitle(row.Cells[0]);
             addNick(row.Cells[1], information.Nickname);
-            addWhiteSpace(table);
+            
 
 
             row = table.AddRow();
@@ -68,21 +71,21 @@ public class GeneratePdfUseCase : IGeneratePdfUseCase
 
             addHaircutCategoryTitle(row.Cells[0]);
             addHaircutCategory(row.Cells[1], information.haircutCategory.CategoryStringToString());
-            addWhiteSpace(table);
+         
 
             row = table.AddRow();
             row.Height = HEIGHT_ROW_TABLE;
 
             addDateTitle(row.Cells[0]);
             addDate(row.Cells[1], information.Date.ToString());
-            addWhiteSpace(table);
+          
 
             row = table.AddRow();
             row.Height = HEIGHT_ROW_TABLE;
 
             addPaymentTitle(row.Cells[0]);
             addPaymentType(row.Cells[1], information.paymentType.paymentTypeToString());
-            addWhiteSpace(table);
+          
 
             if (string.IsNullOrWhiteSpace(information.HaircutDescription) == false)
             {
@@ -94,7 +97,7 @@ public class GeneratePdfUseCase : IGeneratePdfUseCase
 
             }
 
-            addWhiteSpace(table);
+          
             CultureInfo culturaBrasileira = new CultureInfo("pt-BR");
 
 
@@ -151,18 +154,20 @@ public class GeneratePdfUseCase : IGeneratePdfUseCase
     private void createHeader(Section page)
     {
         var table = page.AddTable();
-        table.AddColumn("100").Format.Alignment = ParagraphAlignment.Center;
-        table.AddColumn("300").Format.Alignment = ParagraphAlignment.Center;
-        
+        table.AddColumn("72").Format.Alignment = ParagraphAlignment.Center;
+        table.AddColumn("380").Format.Alignment = ParagraphAlignment.Center;
+        table.AddColumn("72").Format.Alignment = ParagraphAlignment.Right;
+
         var row = table.AddRow();
         /* var assembly = Assembly.GetExecutingAssembly();
          var directoryName = Path.GetDirectoryName(assembly.Location);
          var pathFile = Path.Combine(directoryName, "Logo", "Logo.png");
          row.Cells[0].AddImage(pathFile);*/
-        row.Cells[0].AddImage("D:\\Projetos\\C# projects\\HairScheduler\\src\\HairScheduler.Application\\Logo\\Logo.png");
-        row.Cells[1].Format.Font = new Font { Name = FontHelper.WORKSANS_BLACK, Size = 30 };
+        row.Cells[0].AddImage("D:\\Projetos\\C# projects\\HairScheduler\\src\\HairScheduler.Application\\Logo\\Logo2.png");       
+        row.Cells[1].Format.Font = new Font { Name = FontHelper.RYE_REGULAR, Size = 35 };
         row.Cells[1].AddParagraph("Barber Shop");
         row.Cells[1].VerticalAlignment = MigraDoc.DocumentObjectModel.Tables.VerticalAlignment.Center;
+        row.Cells[2].AddImage("D:\\Projetos\\C# projects\\HairScheduler\\src\\HairScheduler.Application\\Logo\\Logo2.png");
 
     }
 
@@ -170,19 +175,19 @@ public class GeneratePdfUseCase : IGeneratePdfUseCase
     {
         var table = page.AddTable();
         table.AddColumn("150").Format.Alignment = ParagraphAlignment.Left;
-        table.AddColumn("250").Format.Alignment = ParagraphAlignment.Left;
+        table.AddColumn("370").Format.Alignment = ParagraphAlignment.Left;
         return table;
     }
 
     private void addWhiteSpace(Table table)
     {
         var row = table.AddRow();
-        row.Height = 30;
+        row.Height = 40;
         row.Borders.Visible = false;
     }
     private void addNameTitle(Cell cell)
     {
-        cell.Format.Font = new Font { Name = FontHelper.RALEWAY_BLACK, Size = 14, Color = ColorHelper.GREEN_LIGHT };
+        cell.Format.Font = new Font { Name = FontHelper.BLACKOPSONE_REGULAR, Size = 14 };
         cell.Shading.Color = ColorHelper.RED_DARK;
         cell.VerticalAlignment = VerticalAlignment.Center;
         cell.AddParagraph($"{ResourceGeneratorPdfMessages.NAME} :");
@@ -191,7 +196,7 @@ public class GeneratePdfUseCase : IGeneratePdfUseCase
     private void addName(Cell cell, string name)
     {
         cell.Format.Font = new Font { Name = FontHelper.RALEWAY_BLACK, Size = 14 };
-        cell.Shading.Color = ColorHelper.RED_LIGHT;
+        cell.Shading.Color = ColorHelper.GREEN_LIGHT;
         cell.VerticalAlignment = VerticalAlignment.Center;
         cell.Format.LeftIndent = 20;
         cell.AddParagraph(name);
@@ -199,7 +204,7 @@ public class GeneratePdfUseCase : IGeneratePdfUseCase
 
     private void addNickTitle(Cell cell)
     {
-        cell.Format.Font = new Font { Name = FontHelper.RALEWAY_BLACK, Size = 14, Color = ColorHelper.GREEN_LIGHT };
+        cell.Format.Font = new Font { Name = FontHelper.BLACKOPSONE_REGULAR, Size = 14 };
         cell.Shading.Color = ColorHelper.RED_DARK;
         cell.VerticalAlignment = VerticalAlignment.Center;
         cell.AddParagraph($"{ResourceGeneratorPdfMessages.NICKNAME} :");
@@ -208,7 +213,7 @@ public class GeneratePdfUseCase : IGeneratePdfUseCase
     private void addNick(Cell cell, string nickname)
     {
         cell.Format.Font = new Font { Name = FontHelper.RALEWAY_BLACK, Size = 14 };
-        cell.Shading.Color = ColorHelper.RED_LIGHT;
+        cell.Shading.Color = ColorHelper.GREEN_LIGHT;
         cell.VerticalAlignment = VerticalAlignment.Center;
         cell.Format.LeftIndent = 20;
         cell.AddParagraph(nickname);
@@ -216,7 +221,7 @@ public class GeneratePdfUseCase : IGeneratePdfUseCase
 
     private void addHaircutCategoryTitle(Cell cell)
     {
-        cell.Format.Font = new Font { Name = FontHelper.RALEWAY_BLACK, Size = 14, Color = ColorHelper.GREEN_LIGHT };
+        cell.Format.Font = new Font { Name = FontHelper.BLACKOPSONE_REGULAR, Size = 14 };
         cell.Shading.Color = ColorHelper.RED_DARK;
         cell.VerticalAlignment = VerticalAlignment.Center;
         cell.AddParagraph($"{ResourceGeneratorPdfMessages.HAIRCUT_CATEGORY} :");
@@ -225,7 +230,7 @@ public class GeneratePdfUseCase : IGeneratePdfUseCase
     private void addHaircutCategory(Cell cell, string category)
     {
         cell.Format.Font = new Font { Name = FontHelper.RALEWAY_BLACK, Size = 14 };
-        cell.Shading.Color = ColorHelper.RED_LIGHT;
+        cell.Shading.Color = ColorHelper.GREEN_LIGHT;
         cell.VerticalAlignment = VerticalAlignment.Center;
         cell.Format.LeftIndent = 20;
         cell.AddParagraph(category);
@@ -233,7 +238,7 @@ public class GeneratePdfUseCase : IGeneratePdfUseCase
 
     private void addDateTitle(Cell cell)
     {
-        cell.Format.Font = new Font { Name = FontHelper.RALEWAY_BLACK, Size = 14, Color = ColorHelper.GREEN_LIGHT };
+        cell.Format.Font = new Font { Name = FontHelper.BLACKOPSONE_REGULAR, Size = 14 };
         cell.Shading.Color = ColorHelper.RED_DARK;
         cell.VerticalAlignment = VerticalAlignment.Center;
         cell.AddParagraph($"{ResourceGeneratorPdfMessages.DATE} :");
@@ -242,7 +247,7 @@ public class GeneratePdfUseCase : IGeneratePdfUseCase
     private void addDate(Cell cell, string date)
     {
         cell.Format.Font = new Font { Name = FontHelper.RALEWAY_BLACK, Size = 14 };
-        cell.Shading.Color = ColorHelper.RED_LIGHT;
+        cell.Shading.Color = ColorHelper.GREEN_LIGHT;
         cell.VerticalAlignment = VerticalAlignment.Center;
         cell.Format.LeftIndent = 20;
         cell.AddParagraph(date);
@@ -250,7 +255,7 @@ public class GeneratePdfUseCase : IGeneratePdfUseCase
 
     private void addPaymentTitle(Cell cell)
     {
-        cell.Format.Font = new Font { Name = FontHelper.RALEWAY_BLACK, Size = 14, Color = ColorHelper.GREEN_LIGHT };
+        cell.Format.Font = new Font { Name = FontHelper.BLACKOPSONE_REGULAR, Size = 14 };
         cell.Shading.Color = ColorHelper.RED_DARK;
         cell.VerticalAlignment = VerticalAlignment.Center;
         cell.AddParagraph($"{ResourceGeneratorPdfMessages.PAYMENT_TYPE} :");
@@ -259,7 +264,7 @@ public class GeneratePdfUseCase : IGeneratePdfUseCase
     private void addPaymentType(Cell cell, string paymentType)
     {
         cell.Format.Font = new Font { Name = FontHelper.RALEWAY_BLACK, Size = 14 };
-        cell.Shading.Color = ColorHelper.RED_LIGHT;
+        cell.Shading.Color = ColorHelper.GREEN_LIGHT;
         cell.VerticalAlignment = VerticalAlignment.Center;
         cell.Format.LeftIndent = 20;
         cell.AddParagraph(paymentType);
@@ -268,7 +273,7 @@ public class GeneratePdfUseCase : IGeneratePdfUseCase
 
     private void addDescriptionTitle(Cell cell)
     {
-        cell.Format.Font = new Font { Name = FontHelper.RALEWAY_BLACK, Size = 14, Color = ColorHelper.GREEN_LIGHT };
+        cell.Format.Font = new Font { Name = FontHelper.BLACKOPSONE_REGULAR, Size = 14 };
         cell.Shading.Color = ColorHelper.RED_DARK;
         cell.VerticalAlignment = VerticalAlignment.Center;
         cell.AddParagraph($"{ResourceGeneratorPdfMessages.HAIRCUT_DESCRIPTION} :");
@@ -278,7 +283,7 @@ public class GeneratePdfUseCase : IGeneratePdfUseCase
     private void addHaircutDescription(Cell cell, string description)
     {
         cell.Format.Font = new Font { Name = FontHelper.RALEWAY_BLACK, Size = 14 };
-        cell.Shading.Color = ColorHelper.RED_LIGHT;
+        cell.Shading.Color = ColorHelper.GREEN_LIGHT;
         cell.VerticalAlignment = VerticalAlignment.Center;
         cell.Format.LeftIndent = 20;
         cell.AddParagraph(description);
@@ -286,16 +291,16 @@ public class GeneratePdfUseCase : IGeneratePdfUseCase
 
     private void addAmountTile(Cell cell)
     {
-        cell.Format.Font = new Font { Name = FontHelper.RALEWAY_BLACK, Size = 14, Color = ColorHelper.GREEN_LIGHT };
-        cell.Shading.Color = ColorHelper.RED_DARK;
+        cell.Format.Font = new Font { Name = FontHelper.BLACKOPSONE_REGULAR, Size = 14, Color = ColorHelper.WITHE };
+        cell.Shading.Color = ColorHelper.GREEN;
         cell.VerticalAlignment = VerticalAlignment.Center;
         cell.AddParagraph($"{ResourceGeneratorPdfMessages.AMOUNT} :");
     }
 
     private void addPriceAmount(Cell cell, string amount)
     {
-        cell.Format.Font = new Font { Name = FontHelper.RALEWAY_BLACK, Size = 14 };
-        cell.Shading.Color = ColorHelper.RED_LIGHT;
+        cell.Format.Font = new Font { Name = FontHelper.RALEWAY_BLACK, Size = 14, Color = ColorHelper.WITHE};
+        cell.Shading.Color = ColorHelper.GREEN;
         cell.VerticalAlignment = VerticalAlignment.Center;
         cell.Format.LeftIndent = 20;
         cell.AddParagraph(amount);

@@ -35,14 +35,19 @@ internal class Repository : IWriteOnlyRepository, IReadOnlyRepository, IUpdateOn
 
     public async Task<bool> ExistData(DateTime date)
     {
-        return await _dbContext.Schedules.AnyAsync(d => d.Date >= date && d.Date <= date.AddMinutes(30));
+        date = new DateTime(date.Year, date.Month, date.Day, date.Hour, date.Minute, 0); 
+
+        var start = date.AddMinutes(-29);
+        var end = date.AddMinutes(29);
+
+        return await _dbContext.Schedules.AnyAsync(d => d.Date >= start && d.Date <= end);
     }
 
     public async Task<List<Schedule>> FilterByDay(DateTime day, string nickname)
     {
      
-        var startDate = day.Date; // Início do dia, por exemplo, 2024-12-05 00:00:00
-        var endDate = day.Date.AddHours(23).AddMinutes(59).AddSeconds(59); // Fim do dia, 2024-12-05 23:59:59
+        var startDate = day.Date; 
+        var endDate = day.Date.AddHours(23).AddMinutes(59).AddSeconds(59); 
 
         return await _dbContext.Schedules.AsNoTracking()
             .Where(d => d.Date >= startDate && d.Date <= endDate)
@@ -51,7 +56,6 @@ internal class Repository : IWriteOnlyRepository, IReadOnlyRepository, IUpdateOn
             .ToListAsync();
 
     }
-
     public async Task<List<Schedule>> GetAll()
     {
         return await _dbContext.Schedules.AsNoTracking().ToListAsync();
