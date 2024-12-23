@@ -57,10 +57,11 @@ Documentação Swagger de maneira interativa
 
 ![image-swagger]
 
+## 📄 Generated PDF
 
+É possível emitor o PDF de um determinado agendamento, contendo as informações completa do serviço solicitado.
 
-
-
+![generated-PDF]
 
 
 
@@ -72,6 +73,8 @@ Documentação Swagger de maneira interativa
 
 <!-- Images -->
 [image-swagger]: /images/Project.jpg
+[generated-PDF]: /images/Informations.jpg
+
 
 <!-- Icons -->
 [icon-dot-net]: https://img.shields.io/badge/.NET-512BD4?logo=dotnet&logoColor=fff&style=for-the-badge
