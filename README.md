@@ -59,12 +59,11 @@ Documentação Swagger de maneira interativa
 
 ## 📄 Generated PDF
 
-É possível emitor o PDF de um determinado agendamento, contendo as informações completa do serviço solicitado.
+É possível emitir um PDF de um determinado agendamento, contendo as informações completa do serviço solicitado.
 
-![generated-PDF]
-
-
-
+<p align="center">
+  <img src="images/Informations.jpg" alt="generated-PDF" />
+</p>
 
 
 
@@ -73,7 +72,7 @@ Documentação Swagger de maneira interativa
 
 <!-- Images -->
 [image-swagger]: /images/Project.jpg
-[generated-PDF]: /images/Informations.jpg
+
 
 
 <!-- Icons -->
