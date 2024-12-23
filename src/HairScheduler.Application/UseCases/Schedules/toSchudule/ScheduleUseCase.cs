@@ -7,7 +7,6 @@ using HairScheduler.Domain.Repositories;
 using HairScheduler.Domain.Repositories.Interfaces;
 using HairScheduler.Exception;
 using HairScheduler.Exception.ExceptionBase;
-using System;
 
 namespace HairScheduler.Application.UseCases.Schedules.toSchudule;
 public class ScheduleUseCase : IScheduleUseCase

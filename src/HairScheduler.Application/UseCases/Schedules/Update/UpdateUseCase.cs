@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
 using HairScheduler.Communication.Requests;
-using HairScheduler.Domain.Entities;
 using HairScheduler.Domain.Repositories;
 using HairScheduler.Domain.Repositories.Interfaces;
 using HairScheduler.Exception;
 using HairScheduler.Exception.ExceptionBase;
-using Microsoft.Extensions.Options;
 
 namespace HairScheduler.Application.UseCases.Schedules.Update;
 

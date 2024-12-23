@@ -1,8 +1,6 @@
 ﻿using HairScheduler.Domain.Entities;
 using HairScheduler.Domain.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace HairScheduler.Infrastructure.Data.Repositories;
 

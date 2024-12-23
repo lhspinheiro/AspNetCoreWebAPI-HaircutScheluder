@@ -1,6 +1,4 @@
-﻿
-using AutoMapper;
-using HairScheduler.Domain.Repositories;
+﻿using HairScheduler.Domain.Repositories;
 using HairScheduler.Domain.Repositories.Interfaces;
 using HairScheduler.Exception;
 using HairScheduler.Exception.ExceptionBase;

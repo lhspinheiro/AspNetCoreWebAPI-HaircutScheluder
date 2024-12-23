@@ -1,5 +1,4 @@
 ﻿using HairScheduler.Communication.Enums;
-using Microsoft.AspNetCore.Http;
 
 namespace HairScheduler.Domain.Entities;
 

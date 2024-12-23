@@ -1,6 +1,4 @@
-﻿using HairScheduler.Communication.Enums;
-
-namespace HairScheduler.Communication.Responses;
+﻿namespace HairScheduler.Communication.Responses;
 
 public class ResponseGetAll
 {
